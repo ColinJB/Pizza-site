@@ -1,6 +1,9 @@
 //business logic
 function Order(name, address, type, number) {
-
+  this.name = name;
+  this.address = address;
+  this.type = type;
+  this.number = number;
 }
 
 function Pizza(size, meatToppings, otherToppings, type) {
@@ -15,6 +18,14 @@ var otherToppingsPrice = 0;
 var meatToppingsPrice = 0;
 var basePrice = 0;
 
+//return order details
+Order.prototype.orderDetails = function(details) {
+  if (this.type === delivery) {
+    return (this.name + ", Order #" + this.number + "<br>" + "Delivery to " + this.address);
+  } else {
+    return (this.name + ", Order #" + this.number + "<br>" + "Pick-up order");
+  }
+}
 //pizza price calculation
 Pizza.prototype.getBasePrice = function() {
   if (this.size === "large") {
