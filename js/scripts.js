@@ -1,10 +1,16 @@
 //business logic
-function Pizza(size, meatToppings, otherToppings) {
+function Order(name, address, type, number) {
+
+}
+
+function Pizza(size, meatToppings, otherToppings, type) {
+  this.type = type;
   this.size = size;
   this.meatToppings = [];
   this.otherToppings = [];
   this.price = 0;
 }
+var deliveryCharge = 4;
 var otherToppingsPrice = 0;
 var meatToppingsPrice = 0;
 var basePrice = 0;
@@ -36,6 +42,13 @@ Pizza.prototype.otherToppingsCost = function() {
   }
 }
 
+Pizza.prototype.totalPrice = function() {
+  if (this.type === "delivery") {
+    this.price = (basePrice + meatToppingsPrice + otherToppingsPrice + deliveryCharge);
+  } else {
+    this.price = (basePrice + meatToppingsPrice + otherToppingsPrice);
+  }
+}
 
 
 //user interface logic
