@@ -1,45 +1,39 @@
 //business logic
-function Pizza(size, toppings) {
+function Pizza(size, meatToppings, otherToppings) {
   this.size = size;
-  this.toppings = [];
+  this.meatToppings = [];
+  this.otherToppings = [];
   this.price = 0;
 }
+var otherToppingsPrice = 0;
+var meatToppingsPrice = 0;
+var basePrice = 0;
 
-var toppingPrice = 0;
-
-Pizza.prototype.getSize = function() {
-  return this.size;
-}
-
-Pizza.prototype.getToppings = function() {
-  return this.toppings;
-}
 //pizza price calculation
-Pizza.prototype.totalPrice = function() {
+Pizza.prototype.getBasePrice = function() {
   if (this.size === "large") {
-    this.price = 18;
-    toppingPrice = 1.5;
+    basePrice = 18;
   } else if (this.size === "medium") {
-    this.price = 15;
-    toppingPrice = 1:
+    basePrice = 15;
   } else if (this.size == "small") {
-    this.price = 13;
-    toppingPrice = 0.75;
+    basePrice = 13;
   }
 }
 
+Pizza.prototype.meatToppingsCost = function() {
+  if (this.meatToppings.length < 1) {
+    meatToppingsPrice = 0;
+  } else {
+    meatToppingsPrice = this.meatToppings.lenth * 1.5;
+  }
 }
 
-
-
-
-
-var costOfPizzas = this.pizzas.forEach(pizza) {
-
-}
-var toppings = [];
-var toppingsPrice = function(toppings) {
-
+Pizza.prototype.otherToppingsCost = function() {
+  if (this.otherToppings.length < 1) {
+    otherToppingsPrice = 0;
+  } else {
+    otherToppingsPrice = this.otherToppings.lenth * 0.75;
+  }
 }
 
 
