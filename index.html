@@ -5,9 +5,63 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-3.1.1.js"></script>
     <script src="js/scripts.js"></script>
-    <title></title>
+    <title>Paradise Pizza Pie</title>
   </head>
   <body>
+    <div class="container">
+      <form id="order">
+        <div class="form-group">
+          <label for="name">Full name:</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="address">Address:</label>
+          <input type="text" class="form-control" id="address">
+        </div>
+        <div class="form-group">
+          <label for="number">Order number:</label>
+          <input type="text" class="form-control" id="number">
+        </div>
+        <select class="form-control" id="type">
+          <option value="delivery">Delivery</option>
+          <option value="pick-up">Pick-up</option>
+        </select>
+      </form>
+        <h2>Create your paradise:</h2>
+      <form id="createPizza">
+        <h3>Choose your preferred size:</h3>
+        <select class="form-control" id="size">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <div class="form-group">
+          <h3>Carnivorous:</h3>
+          <input type="checkbox" name="meatToppings" value="pepperoni"> Pepperoni<br>
+          <input type="checkbox" name="meatToppings" value="ham"> Ham<br>
+          <input type="checkbox" name="meatToppings" value="sausage"> Sausage<br>
+          <input type="checkbox" name="meatToppings" value="ground beed"> Ground Beef<br>
+          <input type="checkbox" name="meatToppings" value="chicken"> Chicken<br>
+          <input type="checkbox" name="meatToppings" value="capicola"> Spicy Capicola<br>
+          <input type="checkbox" name="meatToppings" value="meatballs"> Meatballs<br>
+        </div>
+        <div class="form-group">
+          <h3>Herbivorous (mostly):</h3>
+          <input type="checkbox" name="otherToppings" value="onions"> Onions<br>
+          <input type="checkbox" name="otherToppings" value="tomatoes"> Tomatoes<br>
+          <input type="checkbox" name="otherToppings" value="mushrooms"> Mushrooms<br>
+          <input type="checkbox" name="otherToppings" value="spinach"> Spinach<br>
+          <input type="checkbox" name="otherToppings" value="cherrypep"> Spicy Cherry Peppers<br>
+          <input type="checkbox" name="otherToppings" value="garlic"> Roasted Garlic<br>
+          <input type="checkbox" name="otherToppings" value="freshMoz"> Fresh Mozzarella<br>
+          <input type="checkbox" name="otherToppings" value="asiago"> Asiago<br>
+        </div>
+        <button id="addPizza" class="btn btn-danger" name="addPizza">Add Pizza</button>
+
+        <span id="orderTotal"></span>
+      </form>
+    </div>
+    <h1>Paradise Pizza Pie</h1>
 
   </body>
 </html>

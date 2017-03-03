@@ -1,13 +1,14 @@
 //business logic
-function Order(name, address, type, number) {
+function Order(name, address, type, number, pizzas, total) {
   this.name = name;
   this.address = address;
-  this.type = type;
   this.number = number;
+  this.type = type;
+  this.pizzas = [];
+  this.total = 0;
 }
 
-function Pizza(size, meatToppings, otherToppings, type) {
-  this.type = type;
+function Pizza(size, meatToppings, otherToppings, price) {
   this.size = size;
   this.meatToppings = [];
   this.otherToppings = [];
@@ -18,14 +19,6 @@ var otherToppingsPrice = 0;
 var meatToppingsPrice = 0;
 var basePrice = 0;
 
-//return order details
-Order.prototype.orderDetails = function(details) {
-  if (this.type === delivery) {
-    return (this.name + ", Order #" + this.number + "<br>" + "Delivery to " + this.address);
-  } else {
-    return (this.name + ", Order #" + this.number + "<br>" + "Pick-up order");
-  }
-}
 //pizza price calculation
 Pizza.prototype.getBasePrice = function() {
   if (this.size === "large") {
@@ -53,16 +46,37 @@ Pizza.prototype.otherToppingsCost = function() {
   }
 }
 
-Pizza.prototype.totalPrice = function() {
-  if (this.type === "delivery") {
-    this.price = (basePrice + meatToppingsPrice + otherToppingsPrice + deliveryCharge);
+Pizza.prototype.pizzaPrice = function() {
+  return this.price = (basePrice + meatToppingsPrice + otherToppingsPrice);
+}
+
+//return order details
+Order.prototype.orderDetails = function(details) {
+  if (this.type === delivery) {
+    return (this.name + ", Order #" + this.number + "<br>" + "Delivery to " + this.address);
   } else {
-    this.price = (basePrice + meatToppingsPrice + otherToppingsPrice);
+    return (this.name + ", Order #" + this.number + "<br>" + "Pick-up order");
+  }
+}
+
+Order.prototype.orderTotal = function() {
+  if (this.type === delivery) {
+    this.pizzas.forEach(function(pizza) {
+      this.total += pizza.pizzaPrice();
+    });
+    return this.total += deliveryCharge;
+  } else {
+    return this.pizzas.forEach(function(pizza) {
+      this.total += pizza.pizzaPrice();
+    });
   }
 }
 
 
-//user interface logic
-$(document).ready(function) {
 
-}
+
+
+//user interface logic
+// $(document).ready(function) {
+//
+// }
