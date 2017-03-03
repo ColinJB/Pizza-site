@@ -1,89 +1,38 @@
 //business logic
-function Customer(name, zip, pizzas, discount, total, type) {
-  this.name = name;
-  this.zip = zip;
-  this.pizzas = [];
-  this.discount = discount;
-  this.type = type;
-  this.total = total;
-}
 function Pizza(size, toppings) {
   this.size = size;
   this.toppings = [];
-}
-//Get
-Customer.prototype.getName() {
-  return this.name;
+  this.price = 0;
 }
 
-Customer.prototype.getZip() {
-  return this.zip;
-}
+var toppingPrice = 0;
 
-Customer.prototype.getPizzas() {
-  return this.pizzas;
-}
-
-Customer.prototype.getDiscount() {
-  return this.discount;
-}
-
-
-Customer.prototype.getType() {
-  return this.type;
-}
-Customer.prototype.getTotal() {
-  return this.total;
-}
-
-Pizza.prototype.getPrice() {
-  //return this.cost;
-}
-
-Pizza.prototype.getSize() {
+Pizza.prototype.getSize = function() {
   return this.size;
 }
 
-Pizza.prototype.getToppings() {
+Pizza.prototype.getToppings = function() {
   return this.toppings;
 }
-
-//Set
-Customer.prototype.setName() {
-  this.name = $("input#name").val();
+//pizza price calculation
+Pizza.prototype.totalPrice = function() {
+  if (this.size === "large") {
+    this.price = 18;
+    toppingPrice = 1.5;
+  } else if (this.size === "medium") {
+    this.price = 15;
+    toppingPrice = 1:
+  } else if (this.size == "small") {
+    this.price = 13;
+    toppingPrice = 0.75;
+  }
 }
 
-Customer.prototype.setZip() {
-  this.zip = $("input#zip").val();
 }
 
-Customer.prototype.setPizzas() {
-  this.pizzas = [];
-}
 
-Customer.prototype.setDiscount() {
-  this.discount = totalDiscount;
-}
 
-Customer.prototype.setType() {
-  this.type = $("input#type").val();
-}
 
-Customer.prototype.setTotal() {
-  this.total = orderTotal;
-}
-
-Pizza.prototype.setPrice() {
-  this.cost = $("input#size").val();
-}
-
-Pizza.prototype.setSize() {
-  this.size = $("input#size").val();
-}
-
-Pizza.prototype.setToppings() {
-  this.toppings = $("input#toppings").val();
-}
 
 var costOfPizzas = this.pizzas.forEach(pizza) {
 
