@@ -88,14 +88,15 @@ $(document).ready(function() {
   $("form#createPizza").submit(function(event) {
     event.preventDefault();
     debugger;
+
     var newPizza = new Pizza();
 
     newPizza.size = $("#size").val();
-    newPizza.meatToppings = $("input:checkbox[name=meatToppings]:checked").each(function() {
-      var chosenToppings = $(this).val();
+    $("input:checkbox[name=meatToppings]:checked").each(function() {
+      newPizza.meatToppings.push($(this).val());
     });
-    newPizza.otherToppings = $("input:checkbox[name=otherToppings]:checked").each(function() {
-      var chosenToppings = $(this).val();
+    $("input:checkbox[name=otherToppings]:checked").each(function() {
+      newPizza.otherToppings.push($(this).val());
     });
     console.log(newPizza);
     newPizza.price = newPizza.pizzaPrice();
