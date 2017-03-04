@@ -27,7 +27,7 @@
               <option value="delivery">Delivery</option>
               <option value="pick-up">Pick-up</option>
             </select><br><br>
-            <button type="button" class="btn btn-warning" name="addPizza">Add Pizza!!!</button>
+            <button type="button" class="btn btn-lg btn-warning" name="addPizza">Add Pizza!!!</button>
           </div>
           <div class="col-md-4">
             <p>Create your paradise:</p>
@@ -68,13 +68,15 @@
                 <input type="checkbox" name="otherToppings" value="asiago"> Asiago<br>
               </div>
             </div><br>
-            <button type="button" class="btn btn-warning" name="addPizza">Add Pizza!!!</button>
+            <div class="text-right">
+              <button id="right" type="button" class="btn btn-lg btn-warning" name="addPizza">Add Pizza!!!</button>
+            </div>
           </div>
         </div>
         <div id="summary" class="row">
           <h2>Order Summary:</h2><br>
           <span id="orderSummary"></span>
-          <button type="submit" class="btn btn-danger" name="submitOrder">Submit Order</button>
+          <button id="submit" type="submit" class="btn btn-lg btn-block btn-danger" name="submitOrder">Submit Order</button>
           <br>
           <span id="orderTotal"></span>
         </div>
