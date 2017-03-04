@@ -10,61 +10,75 @@
   <body>
     <div class="container">
       <h1>Paradise Pizza Pie</h1>
-      <div class="row">
-        <div class="col-md-6">
-          <form id="order">
-            <div class="form-group">
+      <form id="pizzaForm">
+        <div class="row">
+          <div class="col-md-4">
+            <br>
+            <p id="ticket">One ticket to Paradise for..?</p>
+            <div id="name" class="form-group">
               <label for="name">Full name:</label>
               <input type="text" class="form-control" id="name">
             </div>
-            <div class="form-group">
+            <div id="address" class="form-group">
               <label for="address">Address:</label>
               <input type="text" class="form-control" id="address">
             </div>
             <select class="form-control" id="type">
               <option value="delivery">Delivery</option>
               <option value="pick-up">Pick-up</option>
-            </select>
-            <button type="submit" class="btn btn-success" name="createOrder">Create Order</button>
-          </form>
-            <h2>Create your paradise:</h2>
-          <form id="createPizza">
-            <h3>Choose your preferred size:</h3>
-            <select class="form-control" id="size">
+            </select><br><br>
+            <button type="button" class="btn btn-warning" name="addPizza">Add Pizza!!!</button>
+          </div>
+          <div class="col-md-4">
+            <p>Create your paradise:</p>
+            <img src="img/cappizza.jpg" width="290" height="225">
+            <h4>Choose your preferred size:</h4>
+            <select id="size" class="form-control">
               <option value="small">Small</option>
               <option value="medium">Medium</option>
               <option value="large">Large</option>
             </select>
+          </div>
+          <br>
+          <div class="col-md-2">
             <div class="form-group">
-              <h3>Carnivorous:</h3>
-              <input type="checkbox" name="meatToppings" value="pepperoni"> Pepperoni<br>
-              <input type="checkbox" name="meatToppings" value="ham"> Ham<br>
-              <input type="checkbox" name="meatToppings" value="sausage"> Sausage<br>
-              <input type="checkbox" name="meatToppings" value="ground beef"> Ground Beef<br>
-              <input type="checkbox" name="meatToppings" value="chicken"> Chicken<br>
-              <input type="checkbox" name="meatToppings" value="capicola"> Spicy Capicola<br>
-              <input type="checkbox" name="meatToppings" value="meatballs"> Meatballs<br>
+              <div class="room">
+                <p class="tops">Carnivorous:</p><br>
+                <input type="checkbox" name="meatToppings" value="pepperoni"> Pepperoni<br>
+                <input type="checkbox" name="meatToppings" value="ham"> Ham<br>
+                <input type="checkbox" name="meatToppings" value="sausage"> Sausage<br>
+                <input type="checkbox" name="meatToppings" value="ground beef"> Ground Beef<br>
+                <input type="checkbox" name="meatToppings" value="chicken"> Chicken<br>
+                <input type="checkbox" name="meatToppings" value="capicola"> Spicy Capicola<br>
+                <input type="checkbox" name="meatToppings" value="meatballs"> Meatballs<br>
+              </div>
             </div>
+          </div>
+          <div class="col-md-2">
             <div class="form-group">
-              <h3>Herbivorous (mostly):</h3>
-              <input type="checkbox" name="otherToppings" value="onions"> Onions<br>
-              <input type="checkbox" name="otherToppings" value="tomatoes"> Tomatoes<br>
-              <input type="checkbox" name="otherToppings" value="mushrooms"> Mushrooms<br>
-              <input type="checkbox" name="otherToppings" value="spinach"> Spinach<br>
-              <input type="checkbox" name="otherToppings" value="cherrypep"> Spicy Cherry Peppers<br>
-              <input type="checkbox" name="otherToppings" value="garlic"> Roasted Garlic<br>
-              <input type="checkbox" name="otherToppings" value="freshMoz"> Fresh Mozzarella<br>
-              <input type="checkbox" name="otherToppings" value="asiago"> Asiago<br>
-            </div>
-            <button id="addPizza" class="btn btn-warning" name="addPizza">Add Pizza</button>
-          </form>
+              <div class="room">
+                <p class="tops">Herbivor<em>ish</em>:</p><br>
+                <input type="checkbox" name="otherToppings" value="onions"> Onions<br>
+                <input type="checkbox" name="otherToppings" value="tomatoes"> Tomatoes<br>
+                <input type="checkbox" name="otherToppings" value="mushrooms"> Mushrooms<br>
+                <input type="checkbox" name="otherToppings" value="spinach"> Spinach<br>
+                <input type="checkbox" name="otherToppings" value="cherrypep"> Cherry Peppers<br>
+                <input type="checkbox" name="otherToppings" value="garlic"> Roasted Garlic<br>
+                <input type="checkbox" name="otherToppings" value="freshMoz"> Fresh Mozzarella<br>
+                <input type="checkbox" name="otherToppings" value="asiago"> Asiago<br>
+              </div>
+            </div><br>
+            <button type="button" class="btn btn-warning" name="addPizza">Add Pizza!!!</button>
+          </div>
         </div>
-        <h2>Order Summary:</h2>
-        <span id="orderSummary"></span>
-        <button type="submit" class="btn btn-danger" name="submitOrder">Submit Order</button>
-      </div>
-      <br>
-      <span id="orderTotal"></span>
+        <div id="summary" class="row">
+          <h2>Order Summary:</h2><br>
+          <span id="orderSummary"></span>
+          <button type="submit" class="btn btn-danger" name="submitOrder">Submit Order</button>
+          <br>
+          <span id="orderTotal"></span>
+        </div>
+      </form>
     </div>
   </body>
 </html>

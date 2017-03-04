@@ -1,0 +1,46 @@
+h1 {
+  text-align: center;
+  font-weight: bolder;
+  margin: 40px;
+}
+
+p {
+  font-size: 26px;
+  text-align: center;
+}
+
+h4 {
+  text-align: center;
+}
+
+#summary {
+  text-align: center;
+}
+
+#ticket {
+  text-align: left;
+  font-size: 22px
+}
+
+#name, #address {
+  width: 260px;
+}
+
+select#type {
+  width: 107px;
+}
+
+.tops {
+  font-size: 22px;
+  text-align: right;;
+}
+
+.room {
+  text-align: right;
+}
+
+img {
+  margin: auto;
+  display: block;
+  border-radius: 8px;
+}
