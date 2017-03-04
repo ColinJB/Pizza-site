@@ -1,8 +1,7 @@
 //business logic
-function Order(name, address, type, number, pizzas, total) {
+function Order(name, address, type, pizzas, total) {
   this.name = name;
   this.address = address;
-  this.number = number;
   this.type = type;
   this.pizzas = [];
   this.total = 0;
@@ -14,6 +13,7 @@ function Pizza(size, meatToppings, otherToppings, price) {
   this.otherToppings = [];
   this.price = 0;
 }
+
 var deliveryCharge = 4;
 var otherToppingsPrice = 0;
 var meatToppingsPrice = 0;
@@ -52,10 +52,10 @@ Pizza.prototype.pizzaPrice = function() {
 
 //return order details
 Order.prototype.orderDetails = function(details) {
-  if (this.type === delivery) {
-    return (this.name + ", Order #" + this.number + "<br>" + "Delivery to " + this.address);
+  if (this.type === "delivery") {
+    return (this.name + ", Delivery to " + this.address);
   } else {
-    return (this.name + ", Order #" + this.number + "<br>" + "Pick-up order");
+    return (this.name + ", Pick-up order");
   }
 }
 
@@ -64,19 +64,41 @@ Order.prototype.orderTotal = function() {
     this.pizzas.forEach(function(pizza) {
       this.total += pizza.pizzaPrice();
     });
-    return this.total += deliveryCharge;
+    this.total += deliveryCharge;
   } else {
-    return this.pizzas.forEach(function(pizza) {
+    this.pizzas.forEach(function(pizza) {
       this.total += pizza.pizzaPrice();
     });
   }
 }
 
-
-
-
-
 //user interface logic
-// $(document).ready(function) {
-//
-// }
+$(document).ready(function() {
+  $("form#order").submit(function(event) {
+    event.preventDefault();
+    var newOrder = new Order();
+
+    newOrder.name = $("input#name").val();
+    newOrder.address = $("input#address").val();
+    newOrder.type = $("#type").val();
+    console.log(newOrder.orderDetails());
+    $("#orderSummary").text(newOrder.orderDetails());
+  });
+
+  $("form#createPizza").submit(function(event) {
+    event.preventDefault();
+    debugger;
+    var newPizza = new Pizza();
+
+    newPizza.size = $("#size").val();
+    newPizza.meatToppings = $("input:checkbox[name=meatToppings]:checked").each(function() {
+      var chosenToppings = $(this).val();
+    });
+    newPizza.otherToppings = $("input:checkbox[name=otherToppings]:checked").each(function() {
+      var chosenToppings = $(this).val();
+    });
+    console.log(newPizza);
+    newPizza.price = newPizza.pizzaPrice();
+
+  });
+});
