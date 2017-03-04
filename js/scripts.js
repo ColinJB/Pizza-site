@@ -1,5 +1,5 @@
 //business logic
-function Order(name, address, type, pizzas, total) {
+function Order(name, address, type) {
   this.name = name;
   this.address = address;
   this.type = type;
@@ -7,7 +7,7 @@ function Order(name, address, type, pizzas, total) {
   this.total = 0;
 }
 
-function Pizza(size, meatToppings, otherToppings, price) {
+function Pizza(size, meatToppings, otherToppings) {
   this.size = size;
   this.meatToppings = [];
   this.otherToppings = [];
@@ -100,6 +100,5 @@ $(document).ready(function() {
     });
     console.log(newPizza);
     newPizza.price = newPizza.pizzaPrice();
-
   });
 });
