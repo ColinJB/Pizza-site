@@ -15,39 +15,37 @@ function Pizza(size, meatToppings, otherToppings) {
 }
 
 var deliveryCharge = 4;
-var otherToppingsPrice = 0;
-var meatToppingsPrice = 0;
-var basePrice = 0;
+
 
 //pizza price calculation
-Pizza.prototype.getBasePrice = function() {
+Pizza.prototype.setBasePrice = function() {
   if (this.size === "large") {
-    basePrice = 18;
+    this.price += 18;
   } else if (this.size === "medium") {
-    basePrice = 15;
+    this.price += 15;
   } else if (this.size == "small") {
-    basePrice = 13;
+    this.price += 13;
   }
 }
 // bUG!!!!!
 Pizza.prototype.meatToppingsCost = function() {
   if (this.meatToppings.length < 1) {
-    meatToppingsPrice = 0;
+    this.price = 0;
   } else {
-    meatToppingsPrice = this.meatToppings.lenth * 1.5;
+    this.price += this.meatToppings.length * 1.5;
   }
 }
 // bUG!!!!!
 Pizza.prototype.otherToppingsCost = function() {
   if (this.otherToppings.length < 1) {
-    otherToppingsPrice = 0;
+    this.price = 0;
   } else {
-    otherToppingsPrice = this.otherToppings.lenth * 0.75;
+    this.price += this.otherToppings.length * 0.75;
   }
 }
 
-Pizza.prototype.pizzaPrice = function() {
-  this.price = (basePrice + meatToppingsPrice + otherToppingsPrice);
+Pizza.prototype.getPrice = function() {
+  return this.price
 }
 
 //return order details
@@ -61,13 +59,13 @@ Order.prototype.orderDetails = function(details) {
 
 Order.prototype.orderTotal = function() {
   if (this.type === "delivery") {
-    this.pizzas.forEach(function(pizza) {
-      this.total += pizza.pizzaPrice();
+    this.pizzas.price.forEach(function(pizzaPrice) {
+      this.total += this.pizzas.price;
     });
     this.total += deliveryCharge;
   } else {
-    this.pizzas.forEach(function(pizza) {
-      this.total += pizza.pizzaPrice();
+    this.pizzas.price.forEach(function(pizzaPrice) {
+      this.total += this.pizzas.price;
     });
   }
 }
@@ -93,13 +91,11 @@ $(document).ready(function() {
       newPizza.otherToppings.push($(this).val());
     });
 
-
+    newPizza.setBasePrice();
+    newPizza.meatToppingsCost();
+    newPizza.otherToppingsCost();
 
     console.log(newPizza);
-    console.log(newPizza.meatToppingsCost());
-    console.log(newPizza.otherToppingsCost());
-    newPizza.pizzaPrice();
-    console.log(newPizza.pizzaPrice());
 
     var newOrder = new Order();
     newOrder.name = $("input#name").val();
