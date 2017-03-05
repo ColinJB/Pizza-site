@@ -44,8 +44,14 @@ Pizza.prototype.otherToppingsCost = function() {
   }
 }
 
+Pizza.prototype.setPrice = function() {
+  this.setBasePrice();
+  this.meatToppingsCost();
+  this.otherToppingsCost();
+}
+
 Pizza.prototype.getPrice = function() {
-  return this.price
+  return this.price;
 }
 
 //return order details
@@ -58,17 +64,14 @@ Order.prototype.orderDetails = function(details) {
 }
 
 Order.prototype.orderTotal = function() {
+  for(var i = 0; i < this.pizzas.length; i++) {
+    this.total += this.pizzas[i].getPrice();
+  }
   if (this.type === "delivery") {
-    this.pizzas.price.forEach(function(pizzaPrice) {
-      this.total += this.pizzas.price;
-    });
     this.total += deliveryCharge;
-  } else {
-    this.pizzas.price.forEach(function(pizzaPrice) {
-      this.total += this.pizzas.price;
-    });
   }
 }
+
 
 Order.prototype.addPizza = function() {
   this.pizzas.push(newPizza);
@@ -91,9 +94,7 @@ $(document).ready(function() {
       newPizza.otherToppings.push($(this).val());
     });
 
-    newPizza.setBasePrice();
-    newPizza.meatToppingsCost();
-    newPizza.otherToppingsCost();
+    newPizza.setPrice();
 
     console.log(newPizza);
 
@@ -103,10 +104,9 @@ $(document).ready(function() {
     newOrder.type = $("#type").val();
 
     newOrder.pizzas.push(newPizza);
-
+    newOrder.orderTotal();
 
     console.log(newOrder.orderDetails());
-    console.log(newOrder.orderTotal());
     $("#orderSummary").text(newOrder.orderDetails());
   });
 });
