@@ -107,72 +107,79 @@ $(document).ready(function() {
     var newOrder = new Order();
 
   $("#addPizza").click(function() {
-    var newPizza = new Pizza();
+    if ($("input#name").val() === "" || $("input#address").val() === "" || $("#type").val() === "none" || $("#size").val() === "none" ) {
+      alert("Please enter information for all fields.");
+    } else {
+      var newPizza = new Pizza();
 
-    newPizza.size = $("#size").val();
+      newPizza.size = $("#size").val();
 
-    $("input:checkbox[name=meatToppings]:checked").each(function() {
-      newPizza.meatToppings.push($(this).val());
-    });
+      $("input:checkbox[name=meatToppings]:checked").each(function() {
+        newPizza.meatToppings.push($(this).val());
+      });
 
-    $("input:checkbox[name=otherToppings]:checked").each(function() {
-      newPizza.otherToppings.push($(this).val());
-    });
-    debugger;
-    console.log(newPizza);
-    //newPizza.setPrice();
-    console.log(newPizza.setPrice());
+      $("input:checkbox[name=otherToppings]:checked").each(function() {
+        newPizza.otherToppings.push($(this).val());
+      });
+      debugger;
+      console.log(newPizza);
+      //newPizza.setPrice();
+      console.log(newPizza.setPrice());
 
-    newOrder.pizzas.push(newPizza);
-    newOrder.name = $("input#name").val();
-    newOrder.address = $("input#address").val();
-    newOrder.type = $("#type").val();
-    newOrder.setTotal();
+      newOrder.pizzas.push(newPizza);
+      newOrder.name = $("input#name").val();
+      newOrder.address = $("input#address").val();
+      newOrder.type = $("#type").val();
+      newOrder.setTotal();
 
-    $(".orderName").text(newOrder.getName());
-    $(".orderAddress").text(newOrder.getAddress());
-    $(".orderType").text(newOrder.getType());
-    $(".pizzaNum").text(newOrder.getPizzas());
-    $(".orderTotal").text(newOrder.getTotal());
-    $("#summary").fadeIn();
+      $(".orderName").text(newOrder.getName());
+      $(".orderAddress").text(newOrder.getAddress());
+      $(".orderType").text(newOrder.getType());
+      $(".pizzaNum").text(newOrder.getPizzas());
+      $(".orderTotal").text(newOrder.getTotal());
+      $("#summary").fadeIn();
 
-    $("#size").val("none");
-    $('input[type=checkbox]').each(function() {
-      this.checked = false;
-    });
-    $("#addPizza").hide();
-    $("#addAnother").show();
+      $("#size").val("none");
+      $('input[type=checkbox]').each(function() {
+        this.checked = false;
+      });
+      $("#addPizza").hide();
+      $("#addAnother").show();
+    }
   });
 
   $("#addAnother").click(function() {
-    var newPizza = new Pizza();
-    debugger;
-    newPizza.size = $("#size").val();
+    if ($("input#name").val() === "" || $("input#address").val() === "" || $("#type").val() === "none" || $("#size").val() === "none" ) {
+      alert("Please enter information for all fields.");
+    } else {
+      var newPizza = new Pizza();
 
-    $("input:checkbox[name=meatToppings]:checked").each(function() {
-      newPizza.meatToppings.push($(this).val());
-    });
+      newPizza.size = $("#size").val();
 
-    $("input:checkbox[name=otherToppings]:checked").each(function() {
-      newPizza.otherToppings.push($(this).val());
-    });
+      $("input:checkbox[name=meatToppings]:checked").each(function() {
+        newPizza.meatToppings.push($(this).val());
+      });
 
-    newPizza.setPrice();
-    newOrder.pizzas.push(newPizza);
-    newOrder.setTotal();
+      $("input:checkbox[name=otherToppings]:checked").each(function() {
+        newPizza.otherToppings.push($(this).val());
+      });
 
-    $(".pizzaNum").text(newOrder.getPizzas());
-    $(".orderTotal").text(newOrder.getTotal());
+      newPizza.setPrice();
+      newOrder.pizzas.push(newPizza);
+      newOrder.setTotal();
 
-    $("#size").val("none");
-    $('input[type=checkbox]').each(function() {
-      this.checked = false;
-    });
+      $(".pizzaNum").text(newOrder.getPizzas());
+      $(".orderTotal").text(newOrder.getTotal());
+
+      $("#size").val("none");
+      $('input[type=checkbox]').each(function() {
+        this.checked = false;
+      });
+    }
   });
 
   $("form#orderForm").submit(function(event) {
     event.preventDefault();
-    //debugger;
 
     $("form#pizzaForm").hide();
     $("#submit").hide();
