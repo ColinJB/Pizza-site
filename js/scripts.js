@@ -32,7 +32,7 @@ Pizza.prototype.meatToppingsCost = function() {
   if (this.meatToppings.length < 1) {
     this.price = 0;
   } else {
-    this.price += this.meatToppings.length * 1.5;
+    this.price += this.meatToppings.length * 1.50;
   }
 }
 // bUG!!!!!
@@ -54,16 +54,8 @@ Pizza.prototype.getPrice = function() {
   return this.price;
 }
 
-//return order details
-Order.prototype.orderDetails = function(details) {
-  if (this.type === "delivery") {
-    return (this.name + ", Delivery to " + this.address);
-  } else {
-    return (this.name + ", Pick-up order");
-  }
-}
 
-Order.prototype.orderTotal = function() {
+Order.prototype.setTotal = function() {
   for(var i = 0; i < this.pizzas.length; i++) {
     this.total += this.pizzas[i].getPrice();
   }
@@ -72,16 +64,43 @@ Order.prototype.orderTotal = function() {
   }
 }
 
+//return order details
+Order.prototype.getName = function() {
+  return this.name;
+}
+
+Order.prototype.getAddress = function() {
+  return this.address;
+}
+
+Order.prototype.getType = function() {
+  return this.type;
+}
+
+Order.prototype.getPizzas = function(pizza) {
+  return this.pizzas.length;
+}
+
+Order.prototype.getTotal = function(details) {
+  return "$" + this.total;
+}
 
 Order.prototype.addPizza = function() {
   this.pizzas.push(newPizza);
 }
+
+Order.prototype.getDetails = function(details) {
+  this.getName();
+  this.getAddress();
+  this.getType();
+  this.getPizzas();
+  this.getTotal();
+}
+
 //user interface logic
 $(document).ready(function() {
-  $("form#pizzaForm").submit(function(event) {
-    event.preventDefault();
-    debugger;
 
+  $("#addPizza").click(function() {
     var newPizza = new Pizza();
 
     newPizza.size = $("#size").val();
@@ -99,14 +118,38 @@ $(document).ready(function() {
     console.log(newPizza);
 
     var newOrder = new Order();
+
+    newOrder.pizzas.push(newPizza);
     newOrder.name = $("input#name").val();
     newOrder.address = $("input#address").val();
     newOrder.type = $("#type").val();
 
-    newOrder.pizzas.push(newPizza);
-    newOrder.orderTotal();
+    newOrder.setTotal();
 
-    console.log(newOrder.orderDetails());
-    $("#orderSummary").text(newOrder.orderDetails());
+    //debugger;
+    console.log(newOrder.getDetails());
+    $("#orderName").text(newOrder.getName());
+    $("#orderAddress").text(newOrder.getAddress());
+    $("#orderType").text(newOrder.getType());
+    $("#pizzaNum").text(newOrder.getPizzas());
+    $("#orderTotal").text(newOrder.getTotal());
+    $("#summary").show();
+
+    $("#size").val("none");
+    $('input[type=checkbox]').each(function() {
+      this.checked = false;
+    });
+
+
+  })
+
+
+  $("form#orderForm").submit(function(event) {
+    event.preventDefault();
+    debugger;
+
+
+
+
   });
 });

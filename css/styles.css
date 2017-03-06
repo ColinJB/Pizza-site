@@ -13,8 +13,15 @@ h4 {
   text-align: center;
 }
 
+img {
+  margin: auto;
+  display: block;
+  border-radius: 8px;
+}
+
 #summary {
   text-align: center;
+  display: none;
 }
 
 #ticket {
@@ -26,13 +33,31 @@ h4 {
   width: 260px;
 }
 
-#right {
-
-}
-
 #submit {
   margin-top: 30px;
 }
+
+#summary p {
+  font-size: 14px;
+  display: inline;
+}
+
+#orderName, #orderAddress, #orderType, #pizzaNum, #orderTotal {
+  font-size: 18px;
+  color: red;
+  font-weight: bolder;
+}
+
+#addPizza {
+  margin-top: 10px;
+}
+
+#choice {
+  font-size: 14px;
+  font-weight: bolder;
+  text-align: left;
+}
+
 select#type {
   width: 107px;
 }
@@ -44,10 +69,4 @@ select#type {
 
 .room {
   text-align: right;
-}
-
-img {
-  margin: auto;
-  display: block;
-  border-radius: 8px;
 }
