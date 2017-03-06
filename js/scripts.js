@@ -97,6 +97,7 @@ Order.prototype.getDetails = function(details) {
   this.getTotal();
 }
 
+
 //user interface logic
 $(document).ready(function() {
 
@@ -152,6 +153,7 @@ $(document).ready(function() {
       alert("Please enter information for all fields.");
     } else {
       var newPizza = new Pizza();
+      newPizza.price = 0;
 
       newPizza.size = $("#size").val();
 
@@ -165,6 +167,7 @@ $(document).ready(function() {
 
       newPizza.setPrice();
       newOrder.pizzas.push(newPizza);
+      newOrder.total = 0;
       newOrder.setTotal();
 
       $(".pizzaNum").text(newOrder.getPizzas());
