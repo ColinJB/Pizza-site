@@ -50,6 +50,11 @@ img {
 
 #addPizza {
   margin-top: 10px;
+  display: none;
+}
+
+#addAnother {
+  display: none;
 }
 
 #choice {

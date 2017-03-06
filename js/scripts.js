@@ -56,6 +56,7 @@ Pizza.prototype.getPrice = function() {
 
 
 Order.prototype.setTotal = function() {
+  this.total = 0;
   for(var i = 0; i < this.pizzas.length; i++) {
     this.total += this.pizzas[i].getPrice();
   }
@@ -99,6 +100,9 @@ Order.prototype.getDetails = function(details) {
 
 //user interface logic
 $(document).ready(function() {
+  $("#addPizza").show();
+
+    var newOrder = new Order();
 
   $("#addPizza").click(function() {
     var newPizza = new Pizza();
@@ -117,8 +121,6 @@ $(document).ready(function() {
 
     console.log(newPizza);
 
-    var newOrder = new Order();
-
     newOrder.pizzas.push(newPizza);
     newOrder.name = $("input#name").val();
     newOrder.address = $("input#address").val();
@@ -133,12 +135,34 @@ $(document).ready(function() {
     $("#orderType").text(newOrder.getType());
     $("#pizzaNum").text(newOrder.getPizzas());
     $("#orderTotal").text(newOrder.getTotal());
-    $("#summary").show();
+    $("#summary").fadeIn();
 
     $("#size").val("none");
     $('input[type=checkbox]').each(function() {
       this.checked = false;
     });
+    $("#addPizza").hide();
+    $("#addAnother").show();
+
+  });
+
+  $("#addAnother").click(function() {
+    var newPizza = new Pizza();
+    debugger;
+    newPizza.size = $("#size").val();
+
+    $("input:checkbox[name=meatToppings]:checked").each(function() {
+      newPizza.meatToppings.push($(this).val());
+    });
+
+    $("input:checkbox[name=otherToppings]:checked").each(function() {
+      newPizza.otherToppings.push($(this).val());
+    });
+
+    newPizza.setPrice();
+    newOrder.pizzas.push(newPizza);
+    newOrder.setTotal();
+    console.log(newOrder);
 
 
   })
