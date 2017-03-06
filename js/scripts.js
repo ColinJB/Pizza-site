@@ -54,9 +54,8 @@ Pizza.prototype.getPrice = function() {
   return this.price;
 }
 
-
 Order.prototype.setTotal = function() {
-  this.total = 0;
+  var total = this.total;
   for(var i = 0; i < this.pizzas.length; i++) {
     this.total += this.pizzas[i].getPrice();
   }
@@ -122,8 +121,7 @@ $(document).ready(function() {
         newPizza.otherToppings.push($(this).val());
       });
       debugger;
-      console.log(newPizza);
-      //newPizza.setPrice();
+
       console.log(newPizza.setPrice());
 
       newOrder.pizzas.push(newPizza);
@@ -136,9 +134,10 @@ $(document).ready(function() {
       $(".orderAddress").text(newOrder.getAddress());
       $(".orderType").text(newOrder.getType());
       $(".pizzaNum").text(newOrder.getPizzas());
-      $(".orderTotal").text(newOrder.getTotal());
+      $(".orderTotal").text("$" + newOrder.total.toFixed(2));
       $("#summary").fadeIn();
 
+      console.log(newOrder.total.toFixed(2));
       $("#size").val("none");
       $('input[type=checkbox]').each(function() {
         this.checked = false;
@@ -169,7 +168,7 @@ $(document).ready(function() {
       newOrder.setTotal();
 
       $(".pizzaNum").text(newOrder.getPizzas());
-      $(".orderTotal").text(newOrder.getTotal());
+      $(".orderTotal").text("$" + newOrder.total.toFixed(2));
 
       $("#size").val("none");
       $('input[type=checkbox]').each(function() {
@@ -192,7 +191,7 @@ $(document).ready(function() {
     }
 
     for(var i = 0; i < newOrder.pizzas.length; i++) {
-      $("ul").append("<li>" + newOrder.pizzas[i].size + " pizza with " + newOrder.pizzas[i].meatToppings.toString() + "," +  newOrder.pizzas[i].otherToppings.toString() + ": $" + newOrder.pizzas[i].price + "</li>");
+      $("ul").append("<li>" + newOrder.pizzas[i].size + " pizza with " + newOrder.pizzas[i].meatToppings.toString() + "," +  newOrder.pizzas[i].otherToppings.toString() + ": $" + newOrder.pizzas[i].price.toFixed(2) + "</li>");
     }
     if (newOrder.type === "Delivery") {
       $("ul").append("<li>" + "Delivery charge: $4")
