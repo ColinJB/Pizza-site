@@ -37,13 +37,25 @@ img {
   margin-top: 30px;
 }
 
-#summary p {
-  font-size: 14px;
-  display: inline;
+.in {
+  font-size: 16px;
+  font-weight: bold;
 }
 
-#orderName, #orderAddress, #orderType, #pizzaNum, #orderTotal {
+.in2 {
+  display: inline;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#orderName, #orderAddress, #orderType {
   font-size: 18px;
+  color: red;
+  font-weight: bolder;
+}
+
+#pizzaNum, #orderTotal {
+  font-size: 24px;
   color: red;
   font-weight: bolder;
 }

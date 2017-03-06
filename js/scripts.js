@@ -164,6 +164,13 @@ $(document).ready(function() {
     newOrder.setTotal();
     console.log(newOrder);
 
+    $("#pizzaNum").text(newOrder.getPizzas());
+    $("#orderTotal").text(newOrder.getTotal());
+
+    $("#size").val("none");
+    $('input[type=checkbox]').each(function() {
+      this.checked = false;
+    });
 
   })
 
