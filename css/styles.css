@@ -19,6 +19,10 @@ img {
   border-radius: 8px;
 }
 
+#pizzaForm {
+  display: none;
+}
+
 #summary {
   text-align: center;
   display: none;
@@ -37,27 +41,21 @@ img {
   margin-top: 30px;
 }
 
-.in {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.in2 {
-  display: inline;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-#orderName, #orderAddress, #orderType {
+.orderName, .orderAddress, .orderType {
   font-size: 18px;
   color: red;
   font-weight: bolder;
 }
 
-#pizzaNum, #orderTotal {
+.pizzaNum, .orderTotal {
   font-size: 24px;
   color: red;
   font-weight: bolder;
+}
+
+.leftThanks {
+  text-align: left;
+  display: none;
 }
 
 #addPizza {
@@ -86,4 +84,20 @@ select#type {
 
 .room {
   text-align: right;
+}
+
+.in {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.in2 {
+  display: inline;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.thanks {
+  font-size: 16px;
+  text-align: left;
 }

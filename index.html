@@ -36,9 +36,9 @@
             <h4>Choose your preferred size:</h4>
             <select id="size" class="form-control">
               <option value="none"></option>
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
             </select>
             <button id="addPizza" type="button" class="btn btn-lg btn-warning btn-block" name="addPizza">Add Pizza!</button>
             <button id="addAnother" type="button" class="btn btn-lg btn-success btn-block" name="addAnother">Add Another Pizza!</button>
@@ -47,29 +47,29 @@
           <div class="col-md-2">
             <div class="form-group">
               <div class="room">
-                <p class="tops">Carnivorous:</p><br>
-                <input type="checkbox" name="meatToppings" value="pepperoni"> Pepperoni<br>
-                <input type="checkbox" name="meatToppings" value="ham"> Ham<br>
-                <input type="checkbox" name="meatToppings" value="sausage"> Sausage<br>
-                <input type="checkbox" name="meatToppings" value="ground beef"> Ground Beef<br>
-                <input type="checkbox" name="meatToppings" value="chicken"> Chicken<br>
-                <input type="checkbox" name="meatToppings" value="capicola"> Spicy Capicola<br>
-                <input type="checkbox" name="meatToppings" value="meatballs"> Meatballs<br>
+                <p class="tops">Carnivorous <small>($1.50 ea)</small>:</p><br>
+                <input type="checkbox" name="meatToppings" value=" Pepperoni"> Pepperoni<br>
+                <input type="checkbox" name="meatToppings" value=" Ham"> Ham<br>
+                <input type="checkbox" name="meatToppings" value=" Sausage"> Sausage<br>
+                <input type="checkbox" name="meatToppings" value=" Ground beef"> Ground Beef<br>
+                <input type="checkbox" name="meatToppings" value=" Chicken"> Chicken<br>
+                <input type="checkbox" name="meatToppings" value=" Capicola"> Spicy Capicola<br>
+                <input type="checkbox" name="meatToppings" value=" Meatballs"> Meatballs<br>
               </div>
             </div>
           </div>
           <div class="col-md-2">
             <div class="form-group">
               <div class="room">
-                <p class="tops">Herbivor<em>ish</em>:</p><br>
-                <input type="checkbox" name="otherToppings" value="onions"> Onions<br>
-                <input type="checkbox" name="otherToppings" value="tomatoes"> Tomatoes<br>
-                <input type="checkbox" name="otherToppings" value="mushrooms"> Mushrooms<br>
-                <input type="checkbox" name="otherToppings" value="spinach"> Spinach<br>
-                <input type="checkbox" name="otherToppings" value="cherrypep"> Cherry Peppers<br>
-                <input type="checkbox" name="otherToppings" value="garlic"> Roasted Garlic<br>
-                <input type="checkbox" name="otherToppings" value="freshMoz"> Fresh Mozzarella<br>
-                <input type="checkbox" name="otherToppings" value="asiago"> Asiago<br>
+                <p class="tops">Herbivor<em>ish</em> <small>($0.75 ea)</small>:</p><br>
+                <input type="checkbox" name="otherToppings" value=" Onions"> Onions<br>
+                <input type="checkbox" name="otherToppings" value=" Tomatoes"> Tomatoes<br>
+                <input type="checkbox" name="otherToppings" value=" Mushrooms"> Mushrooms<br>
+                <input type="checkbox" name="otherToppings" value=" Spinach"> Spinach<br>
+                <input type="checkbox" name="otherToppings" value=" Cherry Pepppers"> Cherry Peppers<br>
+                <input type="checkbox" name="otherToppings" value=" Garlic"> Roasted Garlic<br>
+                <input type="checkbox" name="otherToppings" value=" Fresh Mozzarella"> Fresh Mozzarella<br>
+                <input type="checkbox" name="otherToppings" value=" Asiago"> Asiago<br>
               </div>
             </div><br>
           </div>
@@ -78,13 +78,20 @@
       <form id="orderForm">
         <div id="summary" class="row">
           <h2>Order Summary:</h2><br>
-          <p class="in">Name: <span id="orderName"></span></p><br>
-          <p class="in">Address: <span id="orderAddress"></span></p><br>
-          <p class="in">Order type: <span id="orderType"></span></p><br>
-          <br>
-          <p class="in2">Number of pizzas: <span id="pizzaNum"></span></p>
-          <p class="in2">Order total: <span id="orderTotal"></span></p>
+          <p class="in">Name: <span class="orderName"></span></p>
+          <p class="in">Address: <span class="orderAddress"></span></p>
+          <p class="in">Order type: <span class="orderType"></span></p>
+          <p class="in2">Number of pizzas: <span class="pizzaNum"></span></p>
+          <p class="in2">Order total: <span class="orderTotal"></span></p>
           <button id="submit" type="submit" class="btn btn-lg btn-block btn-danger" name="submitOrder">Submit Order</button>
+          <div class="leftThanks">
+            <br>
+            <p class="thanks">
+              Thank you for your order, <span class="orderName"></span>! Your food will <span id="time"></span> Here is a review of what you purchased:
+            </p>
+            <ul>
+            </ul>
+          </div>
         </div>
       </form>
     </div>
