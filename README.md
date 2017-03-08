@@ -6,7 +6,7 @@
 
 ## Description
 
-_This application creates a new order for each customer. Customers can then create pizzas by shoosing size and toppins; as well as choose delivery or pick-up. They cannot add a pizza without filling out all fields. Submitting the order will display their information, with information about their order; such as price, type and quantity_
+_This application creates a new order for each customer. Customers can then create pizzas by choosing size and toppings; as well as choose delivery or pick-up. They cannot add a pizza without filling out all fields. Submitting the order will display their information, with information about their order; such as price, type and quantity_
 
 ## Setup/Installation Requirements.
 
