@@ -30,11 +30,12 @@ _jQuery_
 
 ## Specifications
  +|Behavior|Input|Output|
- +|Creates new Order(object) w/ properties for [name, address, type,pizzas,total]|new Object|Object (name,address,type,pizzas,total)|
- +|Creates new Pizza(object) w/ properties for[size, meatToppings, otherToppings, price]|new Pizza|Pizza (size,meatToppings,otherToppings,price)|
- +|Adds new pizzas to existing order.|newOrder.pizzas.push(newPizza)|newOrder.pizzas = [1];|
- +|Calculates total price per pizza.|newOrder.total|(sizeCost + toppingsCost)|
- +|Calculates total order cost.|(price per pizza + possibly delivery charge)||
+ +|-----|-----|-----|
+ +|Creates new Order(object) w/ properties for [name, address, type,pizzas,total]|new Object;|Object (name,address,type,pizzas,total)|
+ +|Creates new Pizza(object) w/ properties for[size, meatToppings, otherToppings, price]|new Pizza;|Pizza (size,meatToppings,otherToppings,price)|
+ +|Adds new pizzas to existing order.|newOrder.pizzas.push(newPizza);|newOrder.pizzas = [1];|
+ +|Calculates total price per pizza.|newOrder.total;|(sizeCost + toppingsCost)|
+ +|Calculates total order cost.|newOrder.total;|(price per pizza + possibly delivery charge)|
 
 ### License
 
